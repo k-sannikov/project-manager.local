@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Models\Task;
+use App\Observers\UserObserver;
+use App\Observers\TaskObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Регистрация observer
+        User::observe(UserObserver::class);
+        Task::observe(TaskObserver::class);
     }
 }
