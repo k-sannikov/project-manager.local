@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Models\Task;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -26,6 +28,9 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        // Явное внедрение моделей
+        Route::model('user', User::class);
+        Route::model('task', Task::class);
     }
 
     /**
