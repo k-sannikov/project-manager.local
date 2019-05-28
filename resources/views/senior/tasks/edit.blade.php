@@ -4,7 +4,7 @@
 @include('senior.tasks.partials.modal')
 <div class="row">
     <div class="col">
-        <p class="h4 text-left">Редактирование задачи</p>
+        <p class="h4 text-left">Редактирование задачи id:{{ $task->task_id }}</p>
     </div>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-danger btn-sm mr-3 pt-2 pb-2" data-toggle="modal" data-target="#delete">
