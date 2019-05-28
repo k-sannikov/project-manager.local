@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Task;
 use App\Observers\UserObserver;
 use App\Observers\TaskObserver;
+use Jenssegers\Date\Date;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
         // Регистрация observer
         User::observe(UserObserver::class);
         Task::observe(TaskObserver::class);
+        // Передача локали в пакет Дата
+        Date::setlocale(config('app.locale'));
     }
 }
