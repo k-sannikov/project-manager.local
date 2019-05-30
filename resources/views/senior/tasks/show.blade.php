@@ -12,7 +12,16 @@
     <p><b>E-mail исполнителя: </b>{{ $user->email }}</p>
     <p><b>Права доступа исполнителя: </b>{{ $user->role }}</p>
 @endif
-<p><b>Статус: </b>{{ ($task->status == 0) ? 'Выполняется' : 'Завершена' }}</p>
+<p>
+    <b>Статус: </b>
+    @if ($task->status == 0)
+        Выполняется
+    @elseif ($task->status == 1)
+        Завершена
+    @elseif($task->status == 2)
+        Не назначен
+    @endif
+</p>
 <p><b>Дата создания: </b>{{ Date::parse($task->created_at)->format('j F Y г. H ч. i м.') }}</p>
 <p><b>Дата редактирования: </b>{{ Date::parse($task->updated_at)->format('j F Y г. H ч. i м.') }}</p>
 

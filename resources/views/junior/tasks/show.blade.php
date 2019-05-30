@@ -7,9 +7,6 @@
 <p><b>Наименование: </b>{{ $task->task_name }}</p>
 <p><b>Описание: </b>{{ $task->description }}</p>
 <p><b>Приоритет: </b>{{ $task->priority }}</p>
-<p><b>Имя исполнителя: </b>{{ $user->name }}</p>
-<p><b>E-mail исполнителя: </b>{{ $user->email }}</p>
-<p><b>Права доступа исполнителя: </b>{{ $user->role }}</p>
 <p><b>Статус: </b>{{ ($task->status == 0) ? 'Выполняется' : 'Завершена' }}</p>
 <p><b>Дата создания: </b>{{ Date::parse($task->created_at)->format('j F Y г. H ч. i м.') }}</p>
 <p><b>Дата редактирования: </b>{{ Date::parse($task->updated_at)->format('j F Y г. H ч. i м.') }}</p>
