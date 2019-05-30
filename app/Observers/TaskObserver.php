@@ -16,8 +16,7 @@ class TaskObserver
     {
         $task = Task::find($task->task_id);
         if (request()->user_id == '0') {
-            $task->status = 2;
-            $task->save();
+            $task->update(['status' => 2]);
         }
     }
 }

@@ -18,13 +18,11 @@ class UserObserver
         $tasks = Task::where('user_id', $user->user_id)->get();
 
         foreach ($tasks as $task) {
-            $task->status = 2;
-            $task->save();
+            $task->update(['status' => 2]);
         }
 
         foreach ($tasks as $task) {
-            $task->user_id = 0;
-            $task->save();
+        $task->update(['user_id' => 2]);
         }
     }
 }
