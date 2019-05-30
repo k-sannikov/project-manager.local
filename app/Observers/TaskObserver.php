@@ -7,16 +7,26 @@ use App\Models\Task;
 class TaskObserver
 {
     /**
-     * Обработка события "Обновлено"
+     * Обработка события "Обновление"
      *
      * @param  \App\Models\Task  $task
      * @return void
      */
-    public function updated(Task $task)
+    public function updating(Task $task)
     {
-        $task = Task::find($task->task_id);
-        if (request()->user_id == '0') {
-            $task->update(['status' => 2]);
+        $this->setStatus($task);
+    }
+
+    /**
+     * Установить статус задаче
+     *
+     * @param  \App\Models\Task  $task   The task
+     */
+    public function setStatus(Task $task)
+    {
+        $needSetStatus = $task->user_id == '0';
+        if ($needSetStatus) {
+            $task->status = 2;
         }
     }
 }

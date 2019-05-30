@@ -17,12 +17,31 @@ class UserObserver
     {
         $tasks = Task::where('user_id', $user->user_id)->get();
 
+        $this->setStatus($tasks);
+        $this->setUserID($tasks);
+    }
+
+    /**
+     * Установить статус задаче
+     *
+     * @param  \App\Models\Task  $task   The task
+     */
+    public function setStatus($tasks)
+    {
         foreach ($tasks as $task) {
             $task->update(['status' => 2]);
         }
+    }
 
+    /**
+     * Установить ID пользователя
+     *
+     * @param  \App\Models\Task  $task   The task
+     */
+    public function setUserID($tasks)
+    {
         foreach ($tasks as $task) {
-        $task->update(['user_id' => 2]);
+            $task->update(['user_id' => 0]);
         }
     }
 }
