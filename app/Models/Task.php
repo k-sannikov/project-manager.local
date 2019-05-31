@@ -15,15 +15,6 @@ class Task extends Model
 
     public function users()
     {
-        return $this->belongsTo('App\Model\User', 'user_id', 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'user_id');
     }
-
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $events = [
-        'updated' => TaskObserver::class,
-    ];
 }

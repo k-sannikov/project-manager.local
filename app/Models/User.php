@@ -47,13 +47,4 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Task', 'user_id', 'user_id');
     }
-
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $events = [
-        'deleting' => UserObserver::class,
-    ];
 }
