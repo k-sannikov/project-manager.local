@@ -18,7 +18,7 @@ class TaskController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('can:senior,task');
+        $this->middleware('can:senior');
     }
     /**
      * Вывод списка задач senior

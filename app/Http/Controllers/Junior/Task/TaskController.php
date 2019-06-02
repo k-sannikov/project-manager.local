@@ -18,7 +18,7 @@ class TaskController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('can:junior,task');
+        $this->middleware('can:junior');
     }
 
     /**

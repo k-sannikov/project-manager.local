@@ -14,20 +14,6 @@ class UserPolicy
     use HandlesAuthorization;
 
     /**
-     * Проверка имеет ли пользователь права senior
-     *
-     * @param  \App\Models\User  $user
-     * @return mixed
-     */
-    public function senior(User $user)
-    {
-        if (Auth::user()->role == 'senior') {
-            return true;
-        }
-        return null;
-    }
-
-    /**
      * Проверка имеет ли пользователь права доступа к настройкам пользователя
      *
      * @param  \App\Models\User  $user
@@ -35,7 +21,7 @@ class UserPolicy
      */
     public function settings(User $model, User $user)
     {
-        if (Auth::user()->user_id == $user->user_id) {
+        if ($model->user_id == $user->user_id) {
             return true;
         }
         return null;

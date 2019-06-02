@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('can:senior,user');
+        $this->middleware('can:senior');
     }
 
     /**
