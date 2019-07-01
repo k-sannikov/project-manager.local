@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Task extends Model
 {
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $guarded = ['task_id', 'created_at', 'updated_at'];
     protected $primaryKey = 'task_id';
 
     public function users()

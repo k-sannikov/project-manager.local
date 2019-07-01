@@ -24,6 +24,7 @@ class TaskController extends Controller
      * Вывод списка задач senior
      *
      * @return view
+     *
      */
     public function index()
     {
@@ -53,7 +54,7 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
-        $task = Task::create($request->all());
+        Task::create($request->all());
 
         return redirect()->route('senior.tasks.index');
     }

@@ -32,9 +32,14 @@
                 <option value="user" {{ (($user->role ?? old('role')) == "user") ? "selected" : "" }}>
                     User
                 </option>
-                <option value="senior" {{ (($user->role ?? old('role')) == "senior") ? "selected" : "" }}>
-                    Senior
-                </option>
+                @if (isset($user))
+                    @if ($user->role != 'user')
+                    <option value="senior" {{ (($user->role ?? old('role')) == "senior") ? "selected" : "" }}>
+                        Senior
+                    </option>
+                    @endif
+                @endif
+
                 <option value="junior" {{ (($user->role ?? old('role')) == "junior") ? "selected" : "" }}>
                     Junior
                 </option>

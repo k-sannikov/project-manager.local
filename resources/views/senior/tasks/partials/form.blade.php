@@ -54,8 +54,7 @@
         </option>
 
         @forelse($juniors as $junior)
-        <option value="{{ $junior->user_id }}"
-            {{($junior->user_id == ($task->user_id ?? old('user_id'))) ? "selected" : ""}}>
+        <option value="{{ $junior->user_id }}" {{($junior->user_id == ($task->user_id ?? old('user_id'))) ? "selected" : ""}}>
             {{ $junior->name }}
         </option>
         @empty
